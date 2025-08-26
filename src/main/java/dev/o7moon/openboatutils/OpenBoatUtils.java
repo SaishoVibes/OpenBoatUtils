@@ -53,11 +53,12 @@ public class OpenBoatUtils implements ModInitializer {
 
         // reset additional non-context state
         interpolationCompat = false;
+        collisionResolution = 1;
     }
 
     public static final Logger LOG = LoggerFactory.getLogger("OpenBoatUtils");
 
-    public static final int VERSION = 17;
+    public static final int VERSION = 18;
 
     public static final Identifier settingsChannel = Identifier.of("openboatutils","settings");
 
@@ -91,6 +92,7 @@ public class OpenBoatUtils implements ModInitializer {
     // non-context settings, don't reset with the rest but reset when joining a server (could persist on proxies)
     // there is a separate reset packet that includes these, but the original ones are for resetting the
     // active context rather than the entire state of the mod.
+    // (08/26/25) there is actually not a separate reset packet at the moment. TODO
 
     public static boolean interpolationCompat = false;
 
